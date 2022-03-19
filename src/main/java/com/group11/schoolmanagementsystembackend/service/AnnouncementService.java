@@ -8,4 +8,6 @@ public interface AnnouncementService {
     public List<Announcement> fetchAnnouncements();
 
     public Announcement announcement(Announcement announcement);
+
+    public Announcement fetchAnnouncementById(Integer announcementId);
 }

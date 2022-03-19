@@ -8,6 +8,7 @@ import com.group11.schoolmanagementsystembackend.entity.Announcement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,5 +27,10 @@ public class AnnouncementController {
     @PostMapping("/announcement")
     public Announcement saveDepartment(@RequestBody Announcement announcement) {
         return announcementService.announcement(announcement);
+    }
+
+    @GetMapping("/announcement/{id}")
+    public Announcement fetchAnnouncementById(@PathVariable("id") Integer announcementId){
+        return announcementService.fetchAnnouncementById(announcementId);
     }
 }

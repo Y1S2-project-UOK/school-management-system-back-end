@@ -8,6 +8,7 @@ import com.group11.schoolmanagementsystembackend.repository.AnnouncementReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class AnnouncementServiceImpl implements AnnouncementService{
 
@@ -22,6 +23,11 @@ public class AnnouncementServiceImpl implements AnnouncementService{
     @Override
     public Announcement announcement(Announcement announcement) {
         return announcementRepository.save(announcement);
+    }
+
+    @Override
+    public Announcement fetchAnnouncementById(Integer announcementId) {
+        return announcementRepository.findById(announcementId).get();
     }
     
 }
