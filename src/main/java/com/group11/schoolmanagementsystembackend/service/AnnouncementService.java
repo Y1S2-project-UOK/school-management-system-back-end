@@ -10,4 +10,8 @@ public interface AnnouncementService {
     public Announcement announcement(Announcement announcement);
 
     public Announcement fetchAnnouncementById(Integer announcementId);
+
+    public void deleteAnnouncementById(Integer announcementId);
+
+    public Announcement updateAnnouncement(Integer announcementId, Announcement announcement);
 }
