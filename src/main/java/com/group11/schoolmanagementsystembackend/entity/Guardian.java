@@ -7,6 +7,7 @@ package com.group11.schoolmanagementsystembackend.entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,43 +23,45 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author ishan
  */
 @Entity
-@Table(name = "guardian")
+@Table(name = "guardian", catalog = "school_management_system", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Guardian.findAll", query = "SELECT g FROM Guardian g"),
-    @NamedQuery(name = "Guardian.findByGuardianID", query = "SELECT g FROM Guardian g WHERE g.guardianID = :guardianID"),
+    @NamedQuery(name = "Guardian.findByGuardianId", query = "SELECT g FROM Guardian g WHERE g.guardianId = :guardianId"),
     @NamedQuery(name = "Guardian.findByGuardianName", query = "SELECT g FROM Guardian g WHERE g.guardianName = :guardianName"),
-    @NamedQuery(name = "Guardian.findByGuardianPhoneNo", query = "SELECT g FROM Guardian g WHERE g.guardianPhoneNo = :guardianPhoneNo"),
-    @NamedQuery(name = "Guardian.findByGuardianPassword", query = "SELECT g FROM Guardian g WHERE g.guardianPassword = :guardianPassword")})
+    @NamedQuery(name = "Guardian.findByGuardianPassword", query = "SELECT g FROM Guardian g WHERE g.guardianPassword = :guardianPassword"),
+    @NamedQuery(name = "Guardian.findByGuardianPhoneNo", query = "SELECT g FROM Guardian g WHERE g.guardianPhoneNo = :guardianPhoneNo")})
 public class Guardian implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "guardianID")
-    private String guardianID;
-    @Column(name = "guardianName")
+    @Column(name = "guardian_id")
+    private String guardianId;
+    @Column(name = "guardian_name")
     private String guardianName;
-    @Column(name = "guardianPhoneNo")
-    private String guardianPhoneNo;
-    @Column(name = "guardianPassword")
+    @Column(name = "guardian_password")
     private String guardianPassword;
-    @OneToMany(mappedBy = "guardianID")
+    @Column(name = "guardian_phone_no")
+    private String guardianPhoneNo;
+    @OneToMany(mappedBy = "guardianId")
     private List<Student> studentList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "guardian")
+    private List<GuardianPhone> guardianPhoneList;
 
     public Guardian() {
     }
 
-    public Guardian(String guardianID) {
-        this.guardianID = guardianID;
+    public Guardian(String guardianId) {
+        this.guardianId = guardianId;
     }
 
-    public String getGuardianID() {
-        return guardianID;
+    public String getGuardianId() {
+        return guardianId;
     }
 
-    public void setGuardianID(String guardianID) {
-        this.guardianID = guardianID;
+    public void setGuardianId(String guardianId) {
+        this.guardianId = guardianId;
     }
 
     public String getGuardianName() {
@@ -69,20 +72,20 @@ public class Guardian implements Serializable {
         this.guardianName = guardianName;
     }
 
-    public String getGuardianPhoneNo() {
-        return guardianPhoneNo;
-    }
-
-    public void setGuardianPhoneNo(String guardianPhoneNo) {
-        this.guardianPhoneNo = guardianPhoneNo;
-    }
-
     public String getGuardianPassword() {
         return guardianPassword;
     }
 
     public void setGuardianPassword(String guardianPassword) {
         this.guardianPassword = guardianPassword;
+    }
+
+    public String getGuardianPhoneNo() {
+        return guardianPhoneNo;
+    }
+
+    public void setGuardianPhoneNo(String guardianPhoneNo) {
+        this.guardianPhoneNo = guardianPhoneNo;
     }
 
     @XmlTransient
@@ -94,10 +97,19 @@ public class Guardian implements Serializable {
         this.studentList = studentList;
     }
 
+    @XmlTransient
+    public List<GuardianPhone> getGuardianPhoneList() {
+        return guardianPhoneList;
+    }
+
+    public void setGuardianPhoneList(List<GuardianPhone> guardianPhoneList) {
+        this.guardianPhoneList = guardianPhoneList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (guardianID != null ? guardianID.hashCode() : 0);
+        hash += (guardianId != null ? guardianId.hashCode() : 0);
         return hash;
     }
 
@@ -108,7 +120,7 @@ public class Guardian implements Serializable {
             return false;
         }
         Guardian other = (Guardian) object;
-        if ((this.guardianID == null && other.guardianID != null) || (this.guardianID != null && !this.guardianID.equals(other.guardianID))) {
+        if ((this.guardianId == null && other.guardianId != null) || (this.guardianId != null && !this.guardianId.equals(other.guardianId))) {
             return false;
         }
         return true;
@@ -116,7 +128,7 @@ public class Guardian implements Serializable {
 
     @Override
     public String toString() {
-        return "com.group11.schoolmanagementsystembackend.entity.Guardian[ guardianID=" + guardianID + " ]";
+        return "com.group11.schoolmanagementsystembackend.entity.Guardian[ guardianId=" + guardianId + " ]";
     }
     
 }

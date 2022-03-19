@@ -7,6 +7,15 @@
     <class>com.group11.schoolmanagementsystembackend.entity.SystemUsers_1</class>
     <class>com.group11.schoolmanagementsystembackend.entity.Guardian</class>
     <class>com.group11.schoolmanagementsystembackend.entity.Student</class>
+    <class>com.group11.schoolmanagementsystembackend.entity.StaffLeave</class>
+    <class>com.group11.schoolmanagementsystembackend.entity.Staff</class>
+    <class>com.group11.schoolmanagementsystembackend.entity.Class</class>
+    <class>com.group11.schoolmanagementsystembackend.entity.Exam</class>
+    <class>com.group11.schoolmanagementsystembackend.entity.Subjects</class>
+    <class>com.group11.schoolmanagementsystembackend.entity.Teacher</class>
+    <class>com.group11.schoolmanagementsystembackend.entity.NonAcademic</class>
+    <class>com.group11.schoolmanagementsystembackend.entity.Marks</class>
+    <class>com.group11.schoolmanagementsystembackend.entity.GuardianPhone</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/school_management_system"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

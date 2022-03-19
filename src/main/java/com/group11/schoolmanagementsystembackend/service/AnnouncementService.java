@@ -6,4 +6,6 @@ import com.group11.schoolmanagementsystembackend.entity.Announcement;
 
 public interface AnnouncementService {
     public List<Announcement> fetchAnnouncements();
+
+    public Announcement announcement(Announcement announcement);
 }
