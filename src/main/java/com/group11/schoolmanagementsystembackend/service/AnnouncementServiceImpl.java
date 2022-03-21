@@ -22,7 +22,7 @@ public class AnnouncementServiceImpl implements AnnouncementService{
     }
 
     @Override
-    public Announcement announcement(Announcement announcement) {
+    public Announcement saveAnnouncements(Announcement announcement) {
         return announcementRepository.save(announcement);
     }
 

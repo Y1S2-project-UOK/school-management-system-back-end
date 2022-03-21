@@ -16,6 +16,7 @@
     <class>com.group11.schoolmanagementsystembackend.entity.NonAcademic</class>
     <class>com.group11.schoolmanagementsystembackend.entity.Marks</class>
     <class>com.group11.schoolmanagementsystembackend.entity.GuardianPhone</class>
+    <class>com.group11.schoolmanagementsystembackend.entity.UnaccademyStaff</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/school_management_system"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

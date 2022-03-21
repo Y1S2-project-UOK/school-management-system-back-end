@@ -22,13 +22,13 @@ public class AnnouncementController {
     private AnnouncementService announcementService;
 
     @GetMapping("/announcement")
-    public List<Announcement> fetchDepartments() {
+    public List<Announcement> fetchAnnouncements() {
         return announcementService.fetchAnnouncements();
     }
 
     @PostMapping("/announcement")
-    public Announcement saveDepartment(@RequestBody Announcement announcement) {
-        return announcementService.announcement(announcement);
+    public Announcement saveAnnouncements(@RequestBody Announcement announcement) {
+        return announcementService.saveAnnouncements(announcement);
     }
 
     @GetMapping("/announcement/{id}")

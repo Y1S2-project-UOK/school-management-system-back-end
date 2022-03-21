@@ -9,6 +9,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -22,19 +24,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author ishan
  */
 @Entity
-@Table(name = "announcement", catalog = "school_management_system", schema = "")
+@Table(name = "announcement")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Announcement.findAll", query = "SELECT a FROM Announcement a"),
-    @NamedQuery(name = "Announcement.findByAnnouncementId", query = "SELECT a FROM Announcement a WHERE a.announcementId = :announcementId"),
-    @NamedQuery(name = "Announcement.findByDetails", query = "SELECT a FROM Announcement a WHERE a.details = :details"),
-    @NamedQuery(name = "Announcement.findByPublishDate", query = "SELECT a FROM Announcement a WHERE a.publishDate = :publishDate"),
-    @NamedQuery(name = "Announcement.findByPublisherName", query = "SELECT a FROM Announcement a WHERE a.publisherName = :publisherName"),
-    @NamedQuery(name = "Announcement.findByTitle", query = "SELECT a FROM Announcement a WHERE a.title = :title")})
+    @NamedQuery(name = "Announcement.findAll", query = "SELECT a FROM Announcement a")})
 public class Announcement implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "announcement_id")
     private Integer announcementId;
