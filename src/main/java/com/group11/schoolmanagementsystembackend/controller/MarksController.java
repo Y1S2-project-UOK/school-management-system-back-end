@@ -1,7 +1,5 @@
 package com.group11.schoolmanagementsystembackend.controller;
 
-import java.util.List;
-
 import com.group11.schoolmanagementsystembackend.entity.Marks;
 import com.group11.schoolmanagementsystembackend.service.MarksService;
 
