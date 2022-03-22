@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MarksRepository extends JpaRepository<Marks,Integer>{
-    
+    public Marks findByStudentAdmissionNo(String admissionNo);
 }

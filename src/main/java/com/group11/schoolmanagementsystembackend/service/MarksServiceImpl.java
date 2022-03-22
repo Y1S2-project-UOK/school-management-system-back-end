@@ -15,8 +15,8 @@ public class MarksServiceImpl implements MarksService{
     private MarksRepository marksRepository;
 
     @Override
-    public List<Marks> fetchMarks() {
-        return marksRepository.findAll();
+    public Marks fetchMarksByAdmissionNo(String admissionNo) {
+        return marksRepository.findByStudentAdmissionNo(admissionNo);
     }
     
 }
