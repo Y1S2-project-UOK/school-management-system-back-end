@@ -27,12 +27,14 @@ public class Announcement{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "announcement_id")
     private Integer announcementId;
-    @Column(name = "details")
-    private String details;
+    @Column(name = "description")
+    private String description;
     @Column(name = "publish_date")
     private Date publishDate;
-    @Column(name = "publisher_name")
-    private String publisherName;
+    @Column(name = "publisher")
+    private String publisher;
+    @Column(name = "venue")
+    private String venue;
     @Column(name = "title")
     private String title;
 }
